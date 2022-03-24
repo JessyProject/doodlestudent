@@ -3,7 +3,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN ng build --prod
+RUN npm run build
 
 FROM nginx
 COPY --from=build /app/dist/tlcfront /usr/share/nginx/html
